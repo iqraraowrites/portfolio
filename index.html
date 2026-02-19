@@ -1,158 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Iqra Rao – Copywriter & Content Writer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Iqra Rao | Copywriter & Content Writer</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #0F172A;
-      color: #E5E7EB;
-      text-align: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    nav {
-      padding: 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+<style>
 
-    nav a {
-      color: #94A3B8;
-      margin: 0 15px;
-      text-decoration: none;
-      font-size: 14px;
-    }
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #0F172A;
+    color: #E5E7EB;
+    scroll-behavior: smooth;
+}
 
-    nav a:hover {
-      color: #F59E0B;
-    }
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
 
-    .hero {
-      padding: 80px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+nav a {
+    color: #94A3B8;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 52px;
-      margin: 10px 0;
-    }
+nav a:hover {
+    color: #F59E0B;
+}
 
-    h2 {
-      font-weight: 500;
-      color: #F59E0B;
-      margin-bottom: 10px;
-    }
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: white;
+}
 
-    p {
-      color: #94A3B8;
-      line-height: 1.6;
-      font-size: 16px;
-      max-width: 650px;
-      margin: 20px auto;
-    }
+.btn {
+    border: 1px solid #F59E0B;
+    color: #F59E0B;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+}
 
-    .buttons {
-      margin-top: 30px;
-    }
+.btn:hover {
+    background: #F59E0B;
+    color: #0F172A;
+}
 
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 22px;
-      border: 1px solid #F59E0B;
-      color: #F59E0B;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 14px;
-      transition: 0.2s ease;
-    }
+section {
+    padding: 110px 20px;
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+}
 
-    .btn:hover {
-      background: #F59E0B;
-      color: #0F172A;
-    }
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
 
-    .section {
-      padding: 60px 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
+h1 {
+    font-size: 52px;
+    margin-bottom: 10px;
+}
 
-    .stats {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
+h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
 
-    .stat {
-      margin: 20px 40px;
-    }
+p {
+    color: #94A3B8;
+    line-height: 1.7;
+    max-width: 720px;
+    margin: 15px auto;
+}
 
-    .stat h3 {
-      color: #F59E0B;
-      margin: 0;
-      font-size: 28px;
-    }
+.hero-buttons a {
+    margin: 10px;
+    display: inline-block;
+}
 
-    .stat span {
-      font-size: 13px;
-      color: #94A3B8;
-    }
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
 
-  </style>
+.card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    width: 280px;
+    text-align: left;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    color: #F59E0B;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #94A3B8;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+</style>
 </head>
 
 <body>
 
 <nav>
-  <a href="#">Home</a>
-  <a href="#">Services</a>
-  <a href="#">Portfolio</a>
-  <a href="#">Contact</a>
+    <div class="logo">Iqra Rao</div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact" class="btn">Hire Me</a>
+    </div>
 </nav>
 
-<div class="hero">
-  <h2>Hi 👋 I am</h2>
-  <h1>Iqra Rao</h1>
-  <p>
-    Professional Copywriter & Content Writer helping brands communicate clearly,
-    convert better, and build authority through strategic content.
-  </p>
+<section id="home">
+    <h1>Words That Build Trust And Drive Action</h1>
+    <p>
+        I am Iqra Rao, a professional copywriter and content writer helping businesses communicate with clarity, authority, and purpose. Every brand has a story, but only the right words transform that story into engagement, conversions, and long term credibility.
+    </p>
+    <p>
+        My work focuses on creating meaningful content that attracts attention, holds interest, and guides readers toward confident decisions. Whether you need persuasive copy, SEO driven articles, or brand positioning content, the goal remains the same: writing that works for your business.
+    </p>
 
-  <div class="buttons">
-    <a class="btn" href="#">Hire Me</a>
-    <a class="btn" href="#">View Portfolio</a>
-    <a class="btn" href="#">Download CV</a>
-  </div>
-</div>
-
-<div class="section">
-  <h2>Experience & Results</h2>
-
-  <div class="stats">
-    <div class="stat">
-      <h3>50+</h3>
-      <span>Articles Written</span>
+    <div class="hero-buttons">
+        <a href="#contact" class="btn">Start A Project</a>
+        <a href="#work" class="btn">View Portfolio</a>
     </div>
+</section>
 
-    <div class="stat">
-      <h3>100%</h3>
-      <span>Client Satisfaction</span>
-    </div>
+<section>
+    <h2>Credibility And Experience</h2>
+    <p>
+        Consistent quality and strategic thinking define my writing process. Each project is approached with research, structure, and audience awareness to ensure that the final output aligns with business objectives rather than simply filling space.
+    </p>
 
-    <div class="stat">
-      <h3>8+</h3>
-      <span>Niches Covered</span>
+    <div class="cards">
+        <div class="card">
+            <h3 class="highlight">50 Plus</h3>
+            <p>Long form articles, website copy, and conversion focused content pieces delivered across multiple industries.</p>
+        </div>
+        <div class="card">
+            <h3 class="highlight">Diverse Niches</h3>
+            <p>Experience writing for business, technology, lifestyle, education, and service based brands.</p>
+        </div>
+        <div class="card">
+            <h3 class="highlight">Client Focused</h3>
+            <p>Every piece crafted with reader psychology, clarity, and persuasive structure in mind.</p>
+        </div>
     </div>
-  </div>
-</div>
+</section>
+
+<section id="services">
+    <h2>Services Designed For Growth</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>SEO Content Writing</h3>
+            <p>Search optimized articles that balance readability with ranking potential, ensuring sustainable organic visibility.</p>
+        </div>
+        <div class="card">
+            <h3>Website Copywriting</h3>
+            <p>Clear and persuasive messaging that communicates value, builds trust, and encourages user action.</p>
+        </div>
+        <div class="card">
+            <h3>Blog Strategy</h3>
+            <p>Structured content planning focused on authority building, audience engagement, and long term relevance.</p>
+        </div>
+    </div>
+</section>
+
+<section id="work">
+    <h2>Selected Work</h2>
+
+    <div class="cards">
+        <div class="card">
+            <img src="https://via.placeholder.com/400x250">
+            <h3>Brand Authority Article</h3>
+            <p>In depth editorial content created to position a growing business as a reliable industry voice.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x250">
+            <h3>Conversion Focused Copy</h3>
+            <p>Website messaging structured to improve clarity, engagement, and user confidence.</p>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <h2>Client Feedback</h2>
+    <p>
+        Professionalism, clarity, and reliability are consistently reflected in client collaborations.
+    </p>
+
+    <div class="cards">
+        <div class="card">
+            <p>
+                The writing quality exceeded expectations. The content felt natural, structured, and aligned perfectly with our audience.
+            </p>
+        </div>
+        <div class="card">
+            <p>
+                Exceptional communication and attention to detail. The copy immediately improved the overall presentation of our brand.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Let’s Work Together</h2>
+    <p>
+        If your brand requires thoughtful, persuasive, and professionally crafted content, collaboration begins with a simple conversation.
+    </p>
+    <a href="mailto:your@email.com" class="btn">Contact Me</a>
+</section>
+
+<footer>
+    © Iqra Rao | Professional Copywriter & Content Writer
+</footer>
 
 </body>
 </html>
