@@ -227,11 +227,15 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .hero-left {
             text-align: left;
+        }
+
+        .hero-right {
+            position: relative;
         }
 
         .hero h1 {
@@ -245,6 +249,7 @@
 
         .hero-right {
             position: relative;
+            align-self: flex-start;
         }
 
         .hero-image-wrapper {
@@ -324,17 +329,21 @@
         }
 
         .trust-indicator {
-            margin-top: 4rem;
-            padding: 3rem 0;
+            margin-top: 0;
+            padding: 4rem 0;
+            background: var(--soft-bg);
             border-top: 1px solid var(--border);
+            width: 100%;
         }
 
         .counters-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .counter-item {
@@ -1158,6 +1167,11 @@
                 justify-content: center;
             }
 
+            .hero-right {
+                position: relative;
+                top: 0;
+            }
+
             .contact-wrapper {
                 grid-template-columns: 1fr;
             }
@@ -1227,38 +1241,6 @@
                             <a href="#contact" class="cta-button">Start Your Project</a>
                             <a href="#services" class="btn-secondary">View Services</a>
                         </div>
-                        <div class="trust-indicator">
-                            <div class="counters-grid">
-                                <div class="counter-item">
-                                    <div class="counter-icon">
-                                        <i class="fas fa-building"></i>
-                                    </div>
-                                    <div class="counter-number" data-target="50" data-suffix="+">0</div>
-                                    <div class="counter-label">Trusted Brands</div>
-                                </div>
-                                <div class="counter-item">
-                                    <div class="counter-icon">
-                                        <i class="fas fa-project-diagram"></i>
-                                    </div>
-                                    <div class="counter-number" data-target="200" data-suffix="+">0</div>
-                                    <div class="counter-label">Successful Projects</div>
-                                </div>
-                                <div class="counter-item">
-                                    <div class="counter-icon">
-                                        <i class="fas fa-heart"></i>
-                                    </div>
-                                    <div class="counter-number" data-target="98" data-suffix="%">0</div>
-                                    <div class="counter-label">Client Satisfaction</div>
-                                </div>
-                                <div class="counter-item">
-                                    <div class="counter-icon">
-                                        <i class="fas fa-award"></i>
-                                    </div>
-                                    <div class="counter-number" data-target="5" data-suffix="+">0</div>
-                                    <div class="counter-label">Years Experience</div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="hero-right">
                         <div class="hero-shape"></div>
@@ -1270,8 +1252,41 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Counters Section -->
+        <section class="trust-indicator">
+            <div class="counters-grid">
+                <div class="counter-item">
+                    <div class="counter-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="counter-number" data-target="50" data-suffix="+">0</div>
+                    <div class="counter-label">Trusted Brands</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="counter-number" data-target="200" data-suffix="+">0</div>
+                    <div class="counter-label">Successful Projects</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="counter-number" data-target="98" data-suffix="%">0</div>
+                    <div class="counter-label">Client Satisfaction</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="counter-number" data-target="5" data-suffix="+">0</div>
+                    <div class="counter-label">Years Experience</div>
+                </div>
+            </div>
+        </section>
 
     <!-- USP Section -->
     <section class="usp-section">
@@ -1300,6 +1315,13 @@
                     </div>
                     <h3>Fast Turnaround</h3>
                     <p>I understand deadlines matter. You'll receive polished, ready-to-publish content on time, every time, without compromising quality.</p>
+                </div>
+                <div class="usp-card">
+                    <div class="usp-card-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Clear Communication</h3>
+                    <p>Transparent process, regular updates, and collaborative feedback loops ensure you're always in the loop and confident in the direction.</p>
                 </div>
             </div>
         </div>
@@ -1674,19 +1696,19 @@
                     <h3>Professional Services</h3>
                 </div>
                 <div class="industry-card">
-                    <h3>Education</h3>
-                </div>
-                <div class="industry-card">
-                    <h3>Real Estate</h3>
-                </div>
-                <div class="industry-card">
-                    <h3>Consumer Brands</h3>
+                    <h3>Marketing</h3>
                 </div>
                 <div class="industry-card">
                     <h3>Saas</h3>
                 </div>
                 <div class="industry-card">
-                    <h3>Marketing</h3>
+                    <h3>Consumer Brands</h3>
+                </div>
+                                <div class="industry-card">
+                    <h3>Real Estate</h3>
+                </div>
+                <div class="industry-card">
+                    <h3>Consumer Brands</h3>
                 </div>
             </div>
         </div>
