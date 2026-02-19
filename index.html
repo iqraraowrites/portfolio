@@ -10,125 +10,183 @@
 
 <style>
 
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #0F172A;
-    color: #E5E7EB;
-    scroll-behavior: smooth;
+:root {
+    --bg: #FFFFFF;
+    --heading: #0F172A;
+    --text: #475569;
+    --muted: #94A3B8;
+    --accent: #F59E0B;
+    --accent-hover: #D97706;
+    --border: #E2E8F0;
+    --soft-bg: #F8FAFC;
 }
 
-nav {
-    position: fixed;
-    width: 100%;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+h1, h2, h3 {
+    font-family: "Playfair Display", serif;
+    color: var(--heading);
+    margin-top: 0;
+}
+
+h1 { font-size: 56px; }
+h2 { font-size: 34px; margin-bottom: 10px; }
+h3 { font-size: 20px; }
+
+p {
+    color: var(--text);
+    line-height: 1.7;
+    margin: 10px 0;
+}
+
+.topbar {
+    background: var(--heading);
+    color: white;
+    font-size: 13px;
+    padding: 10px 20px;
+}
+
+.topbar-wrap {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+header {
+    position: sticky;
     top: 0;
-    background: rgba(15, 23, 42, 0.9);
-    backdrop-filter: blur(10px);
-    padding: 18px 40px;
+    background: white;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    z-index: 999;
+}
+
+.header-wrap {
+    max-width: 1200px;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 nav a {
-    color: #94A3B8;
     text-decoration: none;
+    color: var(--text);
     margin-left: 25px;
     font-size: 14px;
 }
 
 nav a:hover {
-    color: #F59E0B;
-}
-
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    color: white;
+    color: var(--accent);
 }
 
 .btn {
-    border: 1px solid #F59E0B;
-    color: #F59E0B;
+    border: 1px solid var(--accent);
+    color: var(--accent);
     padding: 10px 18px;
-    border-radius: 6px;
+    border-radius: 8px;
     text-decoration: none;
     font-size: 14px;
+    display: inline-block;
+    transition: 0.2s ease;
 }
 
 .btn:hover {
-    background: #F59E0B;
-    color: #0F172A;
+    background: var(--accent);
+    color: white;
 }
 
 section {
-    padding: 110px 20px;
-    max-width: 1100px;
+    padding: 90px 20px;
+}
+
+.container {
+    max-width: 1200px;
     margin: auto;
-    text-align: center;
 }
 
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
+.hero {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
 }
 
-h1 {
-    font-size: 52px;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 34px;
-    margin-bottom: 20px;
-}
-
-p {
-    color: #94A3B8;
-    line-height: 1.7;
-    max-width: 720px;
-    margin: 15px auto;
-}
-
-.hero-buttons a {
-    margin: 10px;
-    display: inline-block;
-}
-
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 40px;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
 }
 
 .card {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 10px;
+    background: white;
     padding: 25px;
-    margin: 15px;
-    width: 280px;
-    text-align: left;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    transition: 0.2s ease;
 }
 
-.card img {
-    width: 100%;
-    border-radius: 8px;
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.icon {
+    width: 42px;
+    height: 42px;
+    background: var(--accent);
+    border-radius: 10px;
     margin-bottom: 15px;
 }
 
-.highlight {
-    color: #F59E0B;
+.soft {
+    background: var(--soft-bg);
+}
+
+.slider {
+    overflow: hidden;
+    position: relative;
+    margin-top: 30px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.accent {
+    color: var(--accent);
 }
 
 footer {
-    text-align: center;
-    padding: 40px;
-    color: #94A3B8;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    background: var(--heading);
+    color: white;
+    padding: 60px 20px;
+}
+
+footer p {
+    color: #CBD5F5;
+    margin: 6px 0;
+}
+
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
 }
 
 </style>
@@ -136,121 +194,136 @@ footer {
 
 <body>
 
-<nav>
-    <div class="logo">Iqra Rao</div>
-    <div>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#contact" class="btn">Hire Me</a>
-    </div>
-</nav>
+<div class="topbar">
+  <div class="topbar-wrap">
+    <div>Phone: +1 234 567 890 | Email: hello@example.com</div>
+    <div>LinkedIn | Twitter | Portfolio</div>
+  </div>
+</div>
 
-<section id="home">
-    <h1>Words That Build Trust And Drive Action</h1>
+<header>
+  <div class="header-wrap">
+    <div><strong style="color:var(--heading)">Iqra Rao</strong></div>
+    <nav>
+      <a href="#services">My Services</a>
+      <a href="#projects">My Projects</a>
+      <a href="#contact" class="btn">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<section>
+<div class="container hero">
+  <div>
+    <h1>Professional Writing That Builds Clarity, Trust, And Authority</h1>
     <p>
-        I am Iqra Rao, a professional copywriter and content writer helping businesses communicate with clarity, authority, and purpose. Every brand has a story, but only the right words transform that story into engagement, conversions, and long term credibility.
+      I am a professional copywriter and content writer focused on crafting clear, persuasive, and strategically structured communication. My experience includes developing articles, web copy, and brand narratives designed to strengthen credibility and guide reader decisions.
     </p>
     <p>
-        My work focuses on creating meaningful content that attracts attention, holds interest, and guides readers toward confident decisions. Whether you need persuasive copy, SEO driven articles, or brand positioning content, the goal remains the same: writing that works for your business.
+      I work with businesses and professionals seeking thoughtful, high-quality writing that communicates value with precision while maintaining consistency and clarity.
     </p>
+    <a href="#contact" class="btn">Start a Conversation</a>
+  </div>
 
-    <div class="hero-buttons">
-        <a href="#contact" class="btn">Start A Project</a>
-        <a href="#work" class="btn">View Portfolio</a>
-    </div>
+  <div class="card">
+    <p class="accent">★★★★★</p>
+    <p>Trusted by clients who value clarity, structure, and professional communication standards.</p>
+  </div>
+</div>
+</section>
+
+<section class="soft">
+<div class="container">
+  <h2>What Distinguishes My Work</h2>
+  <div class="grid">
+    <div class="card"><h3 class="accent">Clarity Driven</h3><p>Messages refined to improve comprehension and engagement.</p></div>
+    <div class="card"><h3>Strategic Structure</h3><p>Content organized to guide attention naturally.</p></div>
+    <div class="card"><h3 class="accent">Audience Awareness</h3><p>Writing aligned with reader expectations.</p></div>
+    <div class="card"><h3>Consistency</h3><p>Unified tone and messaging across assets.</p></div>
+  </div>
+</div>
 </section>
 
 <section>
-    <h2>Credibility And Experience</h2>
-    <p>
-        Consistent quality and strategic thinking define my writing process. Each project is approached with research, structure, and audience awareness to ensure that the final output aligns with business objectives rather than simply filling space.
-    </p>
+<div class="container">
+  <h2>Main Value Proposition</h2>
+  <p>
+    Effective writing is central to how brands are perceived and understood. Clear, structured communication reduces friction, builds trust, and supports confident decisions. My approach centers on producing thoughtful, credibility-driven content that reflects professionalism and strategic intent.
+  </p>
 
-    <div class="cards">
-        <div class="card">
-            <h3 class="highlight">50 Plus</h3>
-            <p>Long form articles, website copy, and conversion focused content pieces delivered across multiple industries.</p>
-        </div>
-        <div class="card">
-            <h3 class="highlight">Diverse Niches</h3>
-            <p>Experience writing for business, technology, lifestyle, education, and service based brands.</p>
-        </div>
-        <div class="card">
-            <h3 class="highlight">Client Focused</h3>
-            <p>Every piece crafted with reader psychology, clarity, and persuasive structure in mind.</p>
-        </div>
+  <h3>Our Story</h3>
+  <p>
+    My writing journey evolved through a focus on precision, structure, and audience awareness, shaping a process grounded in clarity and consistency.
+  </p>
+
+  <h3>Why Choose Me</h3>
+  <p>
+    Clients benefit from disciplined thinking, reliable execution, and writing designed with purpose rather than volume.
+  </p>
+
+  <h3>Why Trust Me</h3>
+  <p>
+    Consistency, communication clarity, and attention to detail define my work standards.
+  </p>
+</div>
+</section>
+
+<section id="services" class="soft">
+<div class="container">
+  <h2>My Services</h2>
+  <div class="grid">
+    <div class="card"><div class="icon"></div><h3>SEO Content Writing</h3><p>Search optimized articles designed for visibility and readability.</p></div>
+    <div class="card"><div class="icon"></div><h3>Website Copywriting</h3><p>Persuasive messaging structured to communicate value clearly.</p></div>
+    <div class="card"><div class="icon"></div><h3>Blog Development</h3><p>Authority building narratives crafted for engagement.</p></div>
+    <div class="card"><div class="icon"></div><h3>Brand Messaging</h3><p>Positioning focused communication frameworks.</p></div>
+    <div class="card"><div class="icon"></div><h3>Content Strategy</h3><p>Structured planning aligned with business goals.</p></div>
+    <div class="card"><div class="icon"></div><h3>Editing And Refinement</h3><p>Clarity improvement and message optimization.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+  <h2>My Projects</h2>
+  <div class="grid">
+    <div class="card"><h3>Editorial Content</h3></div>
+    <div class="card"><h3>Conversion Copy</h3></div>
+    <div class="card"><h3>Strategic Articles</h3></div>
+  </div>
+</div>
+</section>
+
+<section class="soft">
+<div class="container">
+  <h2>Testimonials</h2>
+
+  <div class="slider">
+    <div class="slides" id="slides">
+      <div class="slide"><div class="card"><p>Exceptional clarity and professionalism throughout the project.</p></div></div>
+      <div class="slide"><div class="card"><p>Structured writing that aligned perfectly with our brand voice.</p></div></div>
+      <div class="slide"><div class="card"><p>Reliable communication and high quality delivery standards.</p></div></div>
     </div>
+  </div>
+</div>
 </section>
 
-<section id="services">
-    <h2>Services Designed For Growth</h2>
-
-    <div class="cards">
-        <div class="card">
-            <h3>SEO Content Writing</h3>
-            <p>Search optimized articles that balance readability with ranking potential, ensuring sustainable organic visibility.</p>
-        </div>
-        <div class="card">
-            <h3>Website Copywriting</h3>
-            <p>Clear and persuasive messaging that communicates value, builds trust, and encourages user action.</p>
-        </div>
-        <div class="card">
-            <h3>Blog Strategy</h3>
-            <p>Structured content planning focused on authority building, audience engagement, and long term relevance.</p>
-        </div>
-    </div>
-</section>
-
-<section id="work">
-    <h2>Selected Work</h2>
-
-    <div class="cards">
-        <div class="card">
-            <img src="https://via.placeholder.com/400x250">
-            <h3>Brand Authority Article</h3>
-            <p>In depth editorial content created to position a growing business as a reliable industry voice.</p>
-        </div>
-        <div class="card">
-            <img src="https://via.placeholder.com/400x250">
-            <h3>Conversion Focused Copy</h3>
-            <p>Website messaging structured to improve clarity, engagement, and user confidence.</p>
-        </div>
-    </div>
-</section>
-
-<section id="testimonials">
-    <h2>Client Feedback</h2>
-    <p>
-        Professionalism, clarity, and reliability are consistently reflected in client collaborations.
-    </p>
-
-    <div class="cards">
-        <div class="card">
-            <p>
-                The writing quality exceeded expectations. The content felt natural, structured, and aligned perfectly with our audience.
-            </p>
-        </div>
-        <div class="card">
-            <p>
-                Exceptional communication and attention to detail. The copy immediately improved the overall presentation of our brand.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <h2>Let’s Work Together</h2>
-    <p>
-        If your brand requires thoughtful, persuasive, and professionally crafted content, collaboration begins with a simple conversation.
-    </p>
-    <a href="mailto:your@email.com" class="btn">Contact Me</a>
-</section>
-
-<footer>
-    © Iqra Rao | Professional Copywriter & Content Writer
+<footer id="contact">
+<div class="container">
+  <h2 style="color:white">Contact Information</h2>
+  <p>Name: Iqra Rao</p>
+  <p>Phone: +1 234 567 890</p>
+  <p>Email: hello@example.com</p>
+  <p>Address: Your Business Address</p>
+</div>
 </footer>
+
+<script>
+let index = 0;
+setInterval(() => {
+    index = (index + 1) % 3;
+    document.getElementById("slides").style.transform = `translateX(-${index * 100}%)`;
+}, 3200);
+</script>
 
 </body>
 </html>
