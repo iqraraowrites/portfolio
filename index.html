@@ -1,329 +1,1230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iqra Rao - Professional Copywriter & Content Writer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<title>Iqra Rao | Copywriter & Content Writer</title>
+        :root {
+            --bg-white: #FFFFFF;
+            --headline: #0F172A;
+            --body-text: #475569;
+            --muted-text: #94A3B8;
+            --accent: #F59E0B;
+            --accent-hover: #D97706;
+            --border: #E2E8F0;
+            --soft-bg: #F8FAFC;
+            --footer-bg: #0F172A;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--body-text);
+            background: var(--bg-white);
+            line-height: 1.7;
+            font-size: 16px;
+        }
 
-<style>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--headline);
+            font-weight: 600;
+            line-height: 1.3;
+        }
 
-:root {
-    --bg: #FFFFFF;
-    --heading: #0F172A;
-    --text: #475569;
-    --muted: #94A3B8;
-    --accent: #F59E0B;
-    --accent-hover: #D97706;
-    --border: #E2E8F0;
-    --soft-bg: #F8FAFC;
-}
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
 
-* {
-    box-sizing: border-box;
-}
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
 
-body {
-    margin: 0;
-    font-family: Inter, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-}
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
 
-h1, h2, h3 {
-    font-family: "Playfair Display", serif;
-    color: var(--heading);
-    margin-top: 0;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-h1 { font-size: 56px; }
-h2 { font-size: 34px; margin-bottom: 10px; }
-h3 { font-size: 20px; }
+        /* Top Bar */
+        .top-bar {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 0;
+            font-size: 0.875rem;
+        }
 
-p {
-    color: var(--text);
-    line-height: 1.7;
-    margin: 10px 0;
-}
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
 
-.topbar {
-    background: var(--heading);
-    color: white;
-    font-size: 13px;
-    padding: 10px 20px;
-}
+        .top-bar-left {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
 
-.topbar-wrap {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-}
+        .top-bar-right {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
 
-header {
-    position: sticky;
-    top: 0;
-    background: white;
-    padding: 20px;
-    border-bottom: 1px solid var(--border);
-    z-index: 999;
-}
+        .top-bar a {
+            color: var(--body-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-.header-wrap {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .top-bar a:hover {
+            color: var(--accent);
+        }
 
-nav a {
-    text-decoration: none;
-    color: var(--text);
-    margin-left: 25px;
-    font-size: 14px;
-}
+        /* Header */
+        .header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
+        }
 
-nav a:hover {
-    color: var(--accent);
-}
+        .header.scrolled {
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+        }
 
-.btn {
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 10px 18px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 14px;
-    display: inline-block;
-    transition: 0.2s ease;
-}
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.btn:hover {
-    background: var(--accent);
-    color: white;
-}
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--headline);
+            text-decoration: none;
+        }
 
-section {
-    padding: 90px 20px;
-}
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-}
+        .nav a {
+            color: var(--body-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-.hero {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 60px;
-    align-items: center;
-}
+        .nav a:hover {
+            color: var(--accent);
+        }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
+        .cta-button {
+            background: var(--accent);
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
 
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    transition: 0.2s ease;
-}
+        .cta-button:hover {
+            background: var(--accent-hover);
+        }
 
-.card:hover {
-    transform: translateY(-3px);
-}
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-.icon {
-    width: 42px;
-    height: 42px;
-    background: var(--accent);
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
 
-.soft {
-    background: var(--soft-bg);
-}
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--body-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
 
-.slider {
-    overflow: hidden;
-    position: relative;
-    margin-top: 30px;
-}
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
 
-.slides {
-    display: flex;
-    transition: transform 0.5s ease;
-}
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            padding: 0.75rem 1.75rem;
+            border: 2px solid var(--accent);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
 
-.slide {
-    min-width: 100%;
-}
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+        }
 
-.accent {
-    color: var(--accent);
-}
+        .trust-indicator {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--muted-text);
+            font-size: 0.875rem;
+        }
 
-footer {
-    background: var(--heading);
-    color: white;
-    padding: 60px 20px;
-}
+        /* USP Section */
+        .usp-section {
+            padding: 5rem 0;
+            background: var(--soft-bg);
+        }
 
-footer p {
-    color: #CBD5F5;
-    margin: 6px 0;
-}
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
 
-@media (max-width: 900px) {
-    .hero {
-        grid-template-columns: 1fr;
-    }
-}
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
 
-</style>
+        .usp-card {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .usp-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .usp-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .usp-card p {
+            color: var(--body-text);
+            line-height: 1.7;
+        }
+
+        /* Main Body Section */
+        .main-body {
+            padding: 5rem 0;
+        }
+
+        .body-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .body-section {
+            margin-bottom: 4rem;
+        }
+
+        .body-section h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .body-section p {
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 5rem 0;
+            background: var(--soft-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--soft-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--body-text);
+            line-height: 1.7;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 5rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: var(--soft-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted-text);
+            font-size: 0.875rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: var(--body-text);
+            line-height: 1.7;
+        }
+
+        /* Case Studies Section */
+        .case-studies-section {
+            padding: 5rem 0;
+            background: var(--soft-bg);
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .case-study-card {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .case-study-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .case-study-card p {
+            color: var(--body-text);
+            line-height: 1.7;
+        }
+
+        /* Awards Section */
+        .awards-section {
+            padding: 5rem 0;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .award-card {
+            background: var(--soft-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .award-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-card p {
+            color: var(--muted-text);
+            font-size: 0.875rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 5rem 0;
+            background: var(--soft-bg);
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonial-container {
+            overflow: hidden;
+        }
+
+        .testimonial-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            min-width: 100%;
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-text {
+            font-size: 1.125rem;
+            font-style: italic;
+            color: var(--body-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author-name {
+            font-weight: 600;
+            color: var(--headline);
+        }
+
+        .testimonial-author-role {
+            color: var(--muted-text);
+            font-size: 0.875rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .slider-btn {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--accent);
+        }
+
+        /* Industries Section */
+        .industries-section {
+            padding: 5rem 0;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .industry-card {
+            background: var(--soft-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .industry-card h3 {
+            font-size: 1.125rem;
+            margin: 0;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 0;
+            background: var(--soft-bg);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--soft-bg);
+        }
+
+        .faq-question h3 {
+            font-size: 1.125rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .faq-icon {
+            font-size: 1.25rem;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            color: var(--body-text);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--footer-bg);
+            color: var(--muted-text);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--muted-text);
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 4rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .top-bar-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="topbar">
-  <div class="topbar-wrap">
-    <div>Phone: +1 234 567 890 | Email: hello@example.com</div>
-    <div>LinkedIn | Twitter | Portfolio</div>
-  </div>
-</div>
-
-<header>
-  <div class="header-wrap">
-    <div><strong style="color:var(--heading)">Iqra Rao</strong></div>
-    <nav>
-      <a href="#services">My Services</a>
-      <a href="#projects">My Projects</a>
-      <a href="#contact" class="btn">Get a Quote</a>
-    </nav>
-  </div>
-</header>
-
-<section>
-<div class="container hero">
-  <div>
-    <h1>Professional Writing That Builds Clarity, Trust, And Authority</h1>
-    <p>
-      I am a professional copywriter and content writer focused on crafting clear, persuasive, and strategically structured communication. My experience includes developing articles, web copy, and brand narratives designed to strengthen credibility and guide reader decisions.
-    </p>
-    <p>
-      I work with businesses and professionals seeking thoughtful, high-quality writing that communicates value with precision while maintaining consistency and clarity.
-    </p>
-    <a href="#contact" class="btn">Start a Conversation</a>
-  </div>
-
-  <div class="card">
-    <p class="accent">★★★★★</p>
-    <p>Trusted by clients who value clarity, structure, and professional communication standards.</p>
-  </div>
-</div>
-</section>
-
-<section class="soft">
-<div class="container">
-  <h2>What Distinguishes My Work</h2>
-  <div class="grid">
-    <div class="card"><h3 class="accent">Clarity Driven</h3><p>Messages refined to improve comprehension and engagement.</p></div>
-    <div class="card"><h3>Strategic Structure</h3><p>Content organized to guide attention naturally.</p></div>
-    <div class="card"><h3 class="accent">Audience Awareness</h3><p>Writing aligned with reader expectations.</p></div>
-    <div class="card"><h3>Consistency</h3><p>Unified tone and messaging across assets.</p></div>
-  </div>
-</div>
-</section>
-
-<section>
-<div class="container">
-  <h2>Main Value Proposition</h2>
-  <p>
-    Effective writing is central to how brands are perceived and understood. Clear, structured communication reduces friction, builds trust, and supports confident decisions. My approach centers on producing thoughtful, credibility-driven content that reflects professionalism and strategic intent.
-  </p>
-
-  <h3>Our Story</h3>
-  <p>
-    My writing journey evolved through a focus on precision, structure, and audience awareness, shaping a process grounded in clarity and consistency.
-  </p>
-
-  <h3>Why Choose Me</h3>
-  <p>
-    Clients benefit from disciplined thinking, reliable execution, and writing designed with purpose rather than volume.
-  </p>
-
-  <h3>Why Trust Me</h3>
-  <p>
-    Consistency, communication clarity, and attention to detail define my work standards.
-  </p>
-</div>
-</section>
-
-<section id="services" class="soft">
-<div class="container">
-  <h2>My Services</h2>
-  <div class="grid">
-    <div class="card"><div class="icon"></div><h3>SEO Content Writing</h3><p>Search optimized articles designed for visibility and readability.</p></div>
-    <div class="card"><div class="icon"></div><h3>Website Copywriting</h3><p>Persuasive messaging structured to communicate value clearly.</p></div>
-    <div class="card"><div class="icon"></div><h3>Blog Development</h3><p>Authority building narratives crafted for engagement.</p></div>
-    <div class="card"><div class="icon"></div><h3>Brand Messaging</h3><p>Positioning focused communication frameworks.</p></div>
-    <div class="card"><div class="icon"></div><h3>Content Strategy</h3><p>Structured planning aligned with business goals.</p></div>
-    <div class="card"><div class="icon"></div><h3>Editing And Refinement</h3><p>Clarity improvement and message optimization.</p></div>
-  </div>
-</div>
-</section>
-
-<section id="projects">
-<div class="container">
-  <h2>My Projects</h2>
-  <div class="grid">
-    <div class="card"><h3>Editorial Content</h3></div>
-    <div class="card"><h3>Conversion Copy</h3></div>
-    <div class="card"><h3>Strategic Articles</h3></div>
-  </div>
-</div>
-</section>
-
-<section class="soft">
-<div class="container">
-  <h2>Testimonials</h2>
-
-  <div class="slider">
-    <div class="slides" id="slides">
-      <div class="slide"><div class="card"><p>Exceptional clarity and professionalism throughout the project.</p></div></div>
-      <div class="slide"><div class="card"><p>Structured writing that aligned perfectly with our brand voice.</p></div></div>
-      <div class="slide"><div class="card"><p>Reliable communication and high quality delivery standards.</p></div></div>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="tel:+1234567890">+1 (234) 567-890</a>
+                    <a href="mailto:hello@iqrarao.com">hello@iqrarao.com</a>
+                </div>
+                <div class="top-bar-right">
+                    <a href="https://linkedin.com/in/iqrarao" target="_blank">LinkedIn</a>
+                    <a href="https://twitter.com/iqrarao" target="_blank">Twitter</a>
+                    <a href="https://instagram.com/iqrarao" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-</section>
 
-<footer id="contact">
-<div class="container">
-  <h2 style="color:white">Contact Information</h2>
-  <p>Name: Iqra Rao</p>
-  <p>Phone: +1 234 567 890</p>
-  <p>Email: hello@example.com</p>
-  <p>Address: Your Business Address</p>
-</div>
-</footer>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Iqra Rao</a>
+                <nav>
+                    <ul class="nav">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </nav>
+                <a href="#contact" class="cta-button">Get a Quote</a>
+            </div>
+        </div>
+    </header>
 
-<script>
-let index = 0;
-setInterval(() => {
-    index = (index + 1) % 3;
-    document.getElementById("slides").style.transform = `translateX(-${index * 100}%)`;
-}, 3200);
-</script>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Words That Convert, Stories That Sell</h1>
+            <p>I craft compelling copy and strategic content that transforms your brand message into measurable results. With years of experience working with established businesses and ambitious startups, I deliver writing that doesn't just sound good—it drives action.</p>
+            <p>Specializing in conversion-focused copywriting, brand storytelling, and content strategy that connects with your audience and moves them closer to a decision.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="cta-button">Start Your Project</a>
+                <a href="#services" class="btn-secondary">View Services</a>
+            </div>
+            <div class="trust-indicator">
+                Trusted by 50+ brands • 200+ successful projects • 98% client satisfaction
+            </div>
+        </div>
+    </section>
 
+    <!-- USP Section -->
+    <section class="usp-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Work With Me</h2>
+            </div>
+            <div class="usp-grid">
+                <div class="usp-card">
+                    <h3>Strategic Approach</h3>
+                    <p>Every piece of copy is built on research, audience insights, and clear conversion goals. I don't write in a vacuum—I write with purpose.</p>
+                </div>
+                <div class="usp-card">
+                    <h3>Proven Results</h3>
+                    <p>My work has consistently increased engagement rates, improved conversion metrics, and strengthened brand positioning for clients across industries.</p>
+                </div>
+                <div class="usp-card">
+                    <h3>Fast Turnaround</h3>
+                    <p>I understand deadlines matter. You'll receive polished, ready-to-publish content on time, every time, without compromising quality.</p>
+                </div>
+                <div class="usp-card">
+                    <h3>Clear Communication</h3>
+                    <p>Transparent process, regular updates, and collaborative feedback loops ensure you're always in the loop and confident in the direction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Body Section -->
+    <section class="main-body">
+        <div class="container">
+            <div class="body-content">
+                <div class="body-section">
+                    <h2>Our Story</h2>
+                    <p>I've spent years refining the craft of persuasive writing, working with brands that understand the power of words. What started as a passion for clear communication evolved into a specialized practice focused on results-driven copywriting.</p>
+                    <p>Today, I partner with businesses that want more than generic content. They want writing that understands their audience, respects their brand voice, and delivers measurable impact. That's what I provide.</p>
+                </div>
+
+                <div class="body-section">
+                    <h2>Why Choose Me</h2>
+                    <p>In a market saturated with writers, I stand out through a combination of strategic thinking, proven methodology, and genuine commitment to your success. I don't just deliver words—I deliver solutions.</p>
+                    <p>My approach is consultative. I ask the right questions, dig into your business objectives, and create content that aligns with your goals. Whether you need website copy that converts visitors, email sequences that nurture leads, or brand messaging that differentiates you in the market, I bring clarity and precision to every project.</p>
+                </div>
+
+                <div class="body-section">
+                    <h2>What You Get</h2>
+                    <p>When you work with me, you're not just hiring a writer. You're gaining a strategic partner who understands how to position your brand, speak to your audience, and drive the outcomes you need.</p>
+                    <p>You'll receive meticulously crafted copy that's been refined through multiple iterations, backed by research and tested against best practices. You'll also get clear explanations of the strategic choices behind the writing, so you understand why each word matters.</p>
+                </div>
+
+                <div class="body-section">
+                    <h2>Why Trust Me</h2>
+                    <p>My track record speaks for itself. I've helped businesses increase their conversion rates, improve their brand perception, and achieve their marketing objectives through strategic writing. But beyond metrics, I've built lasting relationships with clients who return because they know they can count on quality, consistency, and results.</p>
+                    <p>I stay current with industry trends, continuously refine my skills, and invest in understanding the evolving landscape of digital marketing. Your success is my reputation, and I treat every project with the attention it deserves.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">✍️</div>
+                    <h3>Website Copywriting</h3>
+                    <p>Homepage, landing pages, and key website sections that clearly communicate your value proposition and guide visitors toward action. Conversion-focused writing that turns browsers into buyers.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📧</div>
+                    <h3>Email Marketing Copy</h3>
+                    <p>Engaging email sequences, newsletters, and automated campaigns that nurture relationships and drive engagement. From welcome series to promotional campaigns, I craft messages that get opened and acted upon.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📝</div>
+                    <h3>Content Strategy</h3>
+                    <p>Comprehensive content plans that align with your business goals. I develop editorial calendars, content frameworks, and messaging guidelines that ensure consistency and impact across all channels.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Brand Messaging</h3>
+                    <p>Core brand messaging, taglines, and positioning statements that capture your unique value and resonate with your target audience. Clear, compelling language that differentiates you in the market.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media Content</h3>
+                    <p>Strategic social media copy that builds community, drives engagement, and supports your brand narrative. Platform-specific writing that feels native and authentic.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📄</div>
+                    <h3>Sales & Marketing Materials</h3>
+                    <p>Sales pages, product descriptions, case studies, and marketing collateral that persuades and converts. Writing that makes complex offerings clear and compelling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">Project Image</div>
+                    <div class="project-content">
+                        <h3>E-commerce Brand Redesign</h3>
+                        <p>Complete website copy overhaul for a premium fashion retailer. Developed new brand voice, rewrote all product descriptions, and created conversion-optimized landing pages that increased sales by 35% in the first quarter.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">Project Image</div>
+                    <div class="project-content">
+                        <h3>SaaS Product Launch</h3>
+                        <p>Comprehensive content strategy and copywriting for a B2B software launch. Created website copy, email sequences, and sales materials that helped achieve 200% of initial signup goals within the first month.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">Project Image</div>
+                    <div class="project-content">
+                        <h3>Healthcare Brand Positioning</h3>
+                        <p>Developed brand messaging framework and content strategy for a healthcare technology company. Created patient-facing materials and provider communications that improved engagement rates by 50%.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="case-studies-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Case Studies</h2>
+            </div>
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <h3>Strategic Writing Impact</h3>
+                    <p>A financial services client needed to simplify complex investment products for a broader audience. Through strategic messaging and clear value propositions, we increased qualified lead generation by 60% and improved client understanding scores by 45%.</p>
+                </div>
+                <div class="case-study-card">
+                    <h3>Clarity Improvement</h3>
+                    <p>An enterprise software company struggled with technical jargon that confused potential customers. I rewrote their entire website and sales materials using accessible language, resulting in a 40% reduction in support inquiries and a 25% increase in demo requests.</p>
+                </div>
+                <div class="case-study-card">
+                    <h3>Brand Voice Transformation</h3>
+                    <p>A traditional manufacturing company wanted to modernize their brand communication. I developed a new brand voice guide and rewrote all customer-facing content, helping them attract a younger demographic and increase engagement across all channels by 55%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recognition & Achievements</h2>
+            </div>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <h3>Industry Excellence</h3>
+                    <p>Recognized for outstanding copywriting in digital marketing</p>
+                </div>
+                <div class="award-card">
+                    <h3>Client Success Rate</h3>
+                    <p>98% client satisfaction across all projects</p>
+                </div>
+                <div class="award-card">
+                    <h3>Conversion Expertise</h3>
+                    <p>Average 40% improvement in conversion metrics</p>
+                </div>
+                <div class="award-card">
+                    <h3>Trusted Partner</h3>
+                    <p>Preferred writer for 50+ established brands</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Clients Say</h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-container">
+                    <div class="testimonial-wrapper" id="testimonialWrapper">
+                        <div class="testimonial">
+                            <p class="testimonial-text">"Iqra transformed our website copy from generic to compelling. The new messaging clearly communicates our value, and we've seen a significant increase in qualified inquiries. Her strategic approach and attention to detail made all the difference."</p>
+                            <div class="testimonial-author">
+                                <div>
+                                    <div class="testimonial-author-name">Sarah Mitchell</div>
+                                    <div class="testimonial-author-role">CEO, Tech Solutions Inc.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">"Working with Iqra was a game-changer for our brand. She understood our audience better than we did and created content that resonates authentically. Our engagement rates have improved dramatically, and the quality of our brand communication has never been stronger."</p>
+                            <div class="testimonial-author">
+                                <div>
+                                    <div class="testimonial-author-name">David Chen</div>
+                                    <div class="testimonial-author-role">Marketing Director, Global Brands</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">"Iqra's copywriting expertise helped us launch our product successfully. Her ability to translate complex features into clear, persuasive messaging was exactly what we needed. The conversion rates on our landing pages exceeded our expectations."</p>
+                            <div class="testimonial-author">
+                                <div>
+                                    <div class="testimonial-author-name">Emily Rodriguez</div>
+                                    <div class="testimonial-author-role">Founder, Innovation Labs</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">"Professional, reliable, and results-driven. Iqra consistently delivers high-quality work on time. Her strategic thinking and writing skills have become an essential part of our marketing efforts. I highly recommend her services."</p>
+                            <div class="testimonial-author">
+                                <div>
+                                    <div class="testimonial-author-name">Michael Thompson</div>
+                                    <div class="testimonial-author-role">VP Marketing, Enterprise Corp</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">"Iqra took the time to understand our brand deeply before writing a single word. The result was copy that feels authentic to who we are while being strategically optimized for conversion. Our customer feedback on the new messaging has been overwhelmingly positive."</p>
+                            <div class="testimonial-author">
+                                <div>
+                                    <div class="testimonial-author-name">Jennifer Park</div>
+                                    <div class="testimonial-author-role">Brand Manager, Lifestyle Co.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevBtn">‹</button>
+                    <button class="slider-btn" id="nextBtn">›</button>
+                </div>
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Industries I Serve</h2>
+            </div>
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <h3>Technology</h3>
+                </div>
+                <div class="industry-card">
+                    <h3>Healthcare</h3>
+                </div>
+                <div class="industry-card">
+                    <h3>Finance</h3>
+                </div>
+                <div class="industry-card">
+                    <h3>E-commerce</h3>
+                </div>
+                <div class="industry-card">
+                    <h3>Professional Services</h3>
+                </div>
+                <div class="industry-card">
+                    <h3>Education</h3>
+                </div>
+                <div class="industry-card">
+                    <h3>Real Estate</h3>
+                </div>
+                <div class="industry-card">
+                    <h3>Consumer Brands</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What's included in your copywriting services?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>My services include comprehensive copywriting, strategic messaging development, and content planning. You'll receive polished, ready-to-use copy, along with strategic recommendations and revisions based on your feedback. I also provide clear explanations of the strategic choices behind the writing to help you understand the approach.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does a typical project take?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Project timelines vary based on scope and complexity. A website copywriting project typically takes 2-4 weeks, while email campaigns or smaller projects can be completed in 1-2 weeks. I always provide a clear timeline upfront and keep you updated throughout the process to ensure we meet your deadlines.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you work with businesses in specific industries?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>I work with businesses across various industries, including technology, healthcare, finance, e-commerce, professional services, and more. My approach is research-driven, so I invest time in understanding your industry, audience, and competitive landscape to create copy that resonates authentically.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What's your revision policy?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>I include two rounds of revisions in every project to ensure the copy meets your expectations. This allows us to refine the messaging, adjust tone, and incorporate your feedback. Additional revisions can be arranged if needed, and I'm committed to working with you until you're satisfied with the final result.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do you ensure the copy aligns with our brand voice?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>I start every project with a comprehensive discovery process that includes reviewing your existing brand materials, understanding your target audience, and discussing your brand values and communication style. This ensures the copy I create feels authentic to your brand while being strategically optimized for your goals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can you help with content strategy in addition to copywriting?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes, I offer comprehensive content strategy services including editorial calendars, content frameworks, messaging guidelines, and strategic recommendations. Many clients find it valuable to combine copywriting with strategy to ensure consistency and alignment across all their content channels.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Iqra Rao</h3>
+                    <p>Professional Copywriter & Content Writer</p>
+                    <p>Transforming brand messages into measurable results through strategic writing.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>123 Business Avenue</p>
+                    <p>Suite 400</p>
+                    <p>New York, NY 10001</p>
+                    <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    <p><a href="mailto:hello@iqrarao.com">hello@iqrarao.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p><a href="https://linkedin.com/in/iqrarao" target="_blank">LinkedIn</a></p>
+                    <p><a href="https://twitter.com/iqrarao" target="_blank">Twitter</a></p>
+                    <p><a href="https://instagram.com/iqrarao" target="_blank">Instagram</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Iqra Rao. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Header
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Testimonial Slider
+        const testimonialWrapper = document.getElementById('testimonialWrapper');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const sliderDots = document.getElementById('sliderDots');
+        let currentSlide = 0;
+        const totalSlides = testimonialWrapper.children.length;
+
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            sliderDots.appendChild(dot);
+        }
+
+        function updateSlider() {
+            testimonialWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Auto-play slider (optional)
+        setInterval(nextSlide, 5000);
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(faq => faq.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
