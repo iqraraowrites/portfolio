@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -16,22 +17,28 @@
 
         :root {
             --bg-white: #FFFFFF;
-            --headline: #0F172A;
-            --body-text: #475569;
-            --muted-text: #94A3B8;
-            --accent: #F59E0B;
-            --accent-hover: #D97706;
-            --border: #E2E8F0;
-            --soft-bg: #F8FAFC;
-            --footer-bg: #0F172A;
+            --headline: #1A1F3A;
+            --body-text: #4A5568;
+            --muted-text: #718096;
+            --accent: #6366F1;
+            --accent-hover: #4F46E5;
+            --accent-secondary: #14B8A6;
+            --accent-secondary-hover: #0D9488;
+            --border: #E5E7EB;
+            --soft-bg: #F9FAFB;
+            --gradient-start: #6366F1;
+            --gradient-end: #8B5CF6;
+            --footer-bg: #1A1F3A;
+            --card-shadow: rgba(99, 102, 241, 0.1);
         }
 
         body {
             font-family: 'Inter', sans-serif;
             color: var(--body-text);
             background: var(--bg-white);
-            line-height: 1.7;
-            font-size: 16px;
+            line-height: 1.8;
+            font-size: 17px;
+            font-weight: 400;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -101,6 +108,11 @@
             color: var(--accent);
         }
 
+        .top-bar i {
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+
         /* Header */
         .header {
             background: var(--bg-white);
@@ -113,7 +125,9 @@
         }
 
         .header.scrolled {
-            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
         }
 
         .header-content {
@@ -147,46 +161,147 @@
             color: var(--accent);
         }
 
+        .nav a {
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
         .cta-button {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
             color: white;
-            padding: 0.75rem 1.75rem;
-            border-radius: 4px;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            box-shadow: 0 4px 15px var(--card-shadow);
         }
 
         .cta-button:hover {
-            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--card-shadow);
         }
 
         /* Hero Section */
         .hero {
             padding: 6rem 0;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            opacity: 0.05;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-left {
+            text-align: left;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 2rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-right {
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--card-shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--soft-bg), var(--border));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted-text);
+            font-size: 0.875rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-shape {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent-secondary), var(--accent));
+            opacity: 0.1;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: -50px;
+            right: -50px;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--body-text);
             margin-bottom: 1.5rem;
-            line-height: 1.8;
+            line-height: 1.9;
+            font-weight: 400;
         }
 
         .hero-cta {
             display: flex;
             gap: 1rem;
-            justify-content: center;
+            justify-content: flex-start;
             margin-top: 2.5rem;
             flex-wrap: wrap;
         }
@@ -194,9 +309,9 @@
         .btn-secondary {
             background: transparent;
             color: var(--accent);
-            padding: 0.75rem 1.75rem;
+            padding: 0.875rem 2rem;
             border: 2px solid var(--accent);
-            border-radius: 4px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -205,6 +320,7 @@
         .btn-secondary:hover {
             background: var(--accent);
             color: white;
+            transform: translateY(-2px);
         }
 
         .trust-indicator {
@@ -213,6 +329,19 @@
             border-top: 1px solid var(--border);
             color: var(--muted-text);
             font-size: 0.875rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-item i {
+            color: var(--accent-secondary);
         }
 
         /* USP Section */
@@ -241,8 +370,21 @@
         }
 
         .usp-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px var(--card-shadow);
+        }
+
+        .usp-card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
         }
 
         .usp-card h3 {
@@ -258,24 +400,98 @@
         /* Main Body Section */
         .main-body {
             padding: 5rem 0;
+            background: var(--soft-bg);
         }
 
         .body-content {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .body-section {
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
+            background: var(--bg-white);
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .body-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
+        }
+
+        .body-section:nth-child(even) {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.02), rgba(139, 92, 246, 0.02));
+        }
+
+        .body-section-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .body-section-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
         .body-section h2 {
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
+            font-size: 2rem;
         }
 
         .body-section p {
-            margin-bottom: 1.25rem;
-            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            color: var(--body-text);
+        }
+
+        .body-section-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .body-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--soft-bg);
+            border-radius: 12px;
+        }
+
+        .body-feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-secondary);
+            opacity: 0.1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-secondary);
+            font-size: 1.25rem;
+            flex-shrink: 0;
         }
 
         /* Services Section */
@@ -321,7 +537,8 @@
 
         .service-card p {
             color: var(--body-text);
-            line-height: 1.7;
+            line-height: 1.8;
+            font-size: 1.05rem;
         }
 
         /* Projects Section */
@@ -570,6 +787,149 @@
             margin: 0;
         }
 
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.03), rgba(139, 92, 246, 0.03));
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px var(--card-shadow);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--headline);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details a,
+        .contact-details p {
+            color: var(--body-text);
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+
+        .contact-form {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--headline);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--body-text);
+            transition: all 0.3s ease;
+            background: var(--soft-bg);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: var(--bg-white);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--soft-bg);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--body-text);
+            text-decoration: none;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px var(--card-shadow);
+        }
+
         /* FAQ Section */
         .faq-section {
             padding: 5rem 0;
@@ -599,7 +959,7 @@
         }
 
         .faq-question:hover {
-            background: var(--soft-bg);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.03), rgba(139, 92, 246, 0.03));
         }
 
         .faq-question h3 {
@@ -612,6 +972,13 @@
             font-size: 1.25rem;
             color: var(--accent);
             transition: transform 0.3s ease;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 50%;
         }
 
         .faq-item.active .faq-icon {
@@ -700,6 +1067,26 @@
                 flex-direction: column;
                 text-align: center;
             }
+
+            .hero-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-left {
+                text-align: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .body-section {
+                padding: 2rem;
+            }
         }
     </style>
 </head>
@@ -709,13 +1096,13 @@
         <div class="container">
             <div class="top-bar-content">
                 <div class="top-bar-left">
-                    <a href="tel:+1234567890">+1 (234) 567-890</a>
-                    <a href="mailto:hello@iqrarao.com">hello@iqrarao.com</a>
+                    <a href="tel:+1234567890"><i class="fas fa-phone"></i>+1 (234) 567-890</a>
+                    <a href="mailto:hello@iqrarao.com"><i class="fas fa-envelope"></i>hello@iqrarao.com</a>
                 </div>
                 <div class="top-bar-right">
-                    <a href="https://linkedin.com/in/iqrarao" target="_blank">LinkedIn</a>
-                    <a href="https://twitter.com/iqrarao" target="_blank">Twitter</a>
-                    <a href="https://instagram.com/iqrarao" target="_blank">Instagram</a>
+                    <a href="https://linkedin.com/in/iqrarao" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                    <a href="https://twitter.com/iqrarao" target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
+                    <a href="https://instagram.com/iqrarao" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
                 </div>
             </div>
         </div>
@@ -742,15 +1129,40 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Words That Convert, Stories That Sell</h1>
-            <p>I craft compelling copy and strategic content that transforms your brand message into measurable results. With years of experience working with established businesses and ambitious startups, I deliver writing that doesn't just sound good—it drives action.</p>
-            <p>Specializing in conversion-focused copywriting, brand storytelling, and content strategy that connects with your audience and moves them closer to a decision.</p>
-            <div class="hero-cta">
-                <a href="#contact" class="cta-button">Start Your Project</a>
-                <a href="#services" class="btn-secondary">View Services</a>
-            </div>
-            <div class="trust-indicator">
-                Trusted by 50+ brands • 200+ successful projects • 98% client satisfaction
+            <div class="hero-content">
+                <div class="hero-wrapper">
+                    <div class="hero-left">
+                        <h1>Words That Convert, Stories That Sell</h1>
+                        <p>I craft compelling copy and strategic content that transforms your brand message into measurable results. With years of experience working with established businesses and ambitious startups, I deliver writing that doesn't just sound good—it drives action.</p>
+                        <p>Specializing in conversion-focused copywriting, brand storytelling, and content strategy that connects with your audience and moves them closer to a decision.</p>
+                        <div class="hero-cta">
+                            <a href="#contact" class="cta-button">Start Your Project</a>
+                            <a href="#services" class="btn-secondary">View Services</a>
+                        </div>
+                        <div class="trust-indicator">
+                            <div class="trust-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Trusted by 50+ brands</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>200+ successful projects</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>98% client satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-right">
+                        <div class="hero-shape"></div>
+                        <div class="hero-image-wrapper">
+                            <div class="hero-image">
+                                <img src="hero-image.jpg" alt="Iqra Rao - Professional Copywriter" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:#718096;font-size:0.875rem;\'>Add your image here (hero-image.jpg)</div>';">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -763,18 +1175,30 @@
             </div>
             <div class="usp-grid">
                 <div class="usp-card">
+                    <div class="usp-card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
                     <h3>Strategic Approach</h3>
                     <p>Every piece of copy is built on research, audience insights, and clear conversion goals. I don't write in a vacuum—I write with purpose.</p>
                 </div>
                 <div class="usp-card">
+                    <div class="usp-card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
                     <h3>Proven Results</h3>
                     <p>My work has consistently increased engagement rates, improved conversion metrics, and strengthened brand positioning for clients across industries.</p>
                 </div>
                 <div class="usp-card">
+                    <div class="usp-card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
                     <h3>Fast Turnaround</h3>
                     <p>I understand deadlines matter. You'll receive polished, ready-to-publish content on time, every time, without compromising quality.</p>
                 </div>
                 <div class="usp-card">
+                    <div class="usp-card-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
                     <h3>Clear Communication</h3>
                     <p>Transparent process, regular updates, and collaborative feedback loops ensure you're always in the loop and confident in the direction.</p>
                 </div>
@@ -787,27 +1211,154 @@
         <div class="container">
             <div class="body-content">
                 <div class="body-section">
-                    <h2>Our Story</h2>
+                    <div class="body-section-header">
+                        <div class="body-section-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h2>Our Story</h2>
+                    </div>
                     <p>I've spent years refining the craft of persuasive writing, working with brands that understand the power of words. What started as a passion for clear communication evolved into a specialized practice focused on results-driven copywriting.</p>
                     <p>Today, I partner with businesses that want more than generic content. They want writing that understands their audience, respects their brand voice, and delivers measurable impact. That's what I provide.</p>
+                    <div class="body-section-features">
+                        <div class="body-feature-item">
+                            <div class="body-feature-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <strong>Passion-Driven</strong>
+                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem;">Born from a genuine love for powerful communication</p>
+                            </div>
+                        </div>
+                        <div class="body-feature-item">
+                            <div class="body-feature-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>
+                                <strong>Results-Focused</strong>
+                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem;">Every word crafted with conversion in mind</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="body-section">
-                    <h2>Why Choose Me</h2>
+                    <div class="body-section-header">
+                        <div class="body-section-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h2>Why Choose Me</h2>
+                    </div>
                     <p>In a market saturated with writers, I stand out through a combination of strategic thinking, proven methodology, and genuine commitment to your success. I don't just deliver words—I deliver solutions.</p>
                     <p>My approach is consultative. I ask the right questions, dig into your business objectives, and create content that aligns with your goals. Whether you need website copy that converts visitors, email sequences that nurture leads, or brand messaging that differentiates you in the market, I bring clarity and precision to every project.</p>
+                    <div class="body-section-features">
+                        <div class="body-feature-item">
+                            <div class="body-feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div>
+                                <strong>Strategic Thinking</strong>
+                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem;">Deep analysis before every word is written</p>
+                            </div>
+                        </div>
+                        <div class="body-feature-item">
+                            <div class="body-feature-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <strong>Consultative Approach</strong>
+                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem;">Your success is my priority</p>
+                            </div>
+                        </div>
+                        <div class="body-feature-item">
+                            <div class="body-feature-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <strong>Goal Alignment</strong>
+                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem;">Content that drives your business forward</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="body-section">
-                    <h2>What You Get</h2>
+                    <div class="body-section-header">
+                        <div class="body-section-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h2>What You Get</h2>
+                    </div>
                     <p>When you work with me, you're not just hiring a writer. You're gaining a strategic partner who understands how to position your brand, speak to your audience, and drive the outcomes you need.</p>
                     <p>You'll receive meticulously crafted copy that's been refined through multiple iterations, backed by research and tested against best practices. You'll also get clear explanations of the strategic choices behind the writing, so you understand why each word matters.</p>
+                    <div class="body-section-features">
+                        <div class="body-feature-item">
+                            <div class="body-feature-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div>
+                                <strong>Polished Copy</strong>
+                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem;">Ready-to-publish content that converts</p>
+                            </div>
+                        </div>
+                        <div class="body-feature-item">
+                            <div class="body-feature-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div>
+                                <strong>Research-Backed</strong>
+                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem;">Every decision supported by data and insights</p>
+                            </div>
+                        </div>
+                        <div class="body-feature-item">
+                            <div class="body-feature-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div>
+                                <strong>Strategic Insights</strong>
+                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem;">Understand the why behind every word</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="body-section">
-                    <h2>Why Trust Me</h2>
+                    <div class="body-section-header">
+                        <div class="body-section-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h2>Why Trust Me</h2>
+                    </div>
                     <p>My track record speaks for itself. I've helped businesses increase their conversion rates, improve their brand perception, and achieve their marketing objectives through strategic writing. But beyond metrics, I've built lasting relationships with clients who return because they know they can count on quality, consistency, and results.</p>
                     <p>I stay current with industry trends, continuously refine my skills, and invest in understanding the evolving landscape of digital marketing. Your success is my reputation, and I treat every project with the attention it deserves.</p>
+                    <div class="body-section-features">
+                        <div class="body-feature-item">
+                            <div class="body-feature-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <strong>Proven Track Record</strong>
+                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem;">Consistent results across industries</p>
+                            </div>
+                        </div>
+                        <div class="body-feature-item">
+                            <div class="body-feature-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div>
+                                <strong>Continuous Learning</strong>
+                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem;">Always staying ahead of trends</p>
+                            </div>
+                        </div>
+                        <div class="body-feature-item">
+                            <div class="body-feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div>
+                                <strong>Client Relationships</strong>
+                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem;">Long-term partnerships built on trust</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1036,6 +1587,91 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p style="color: var(--body-text); font-size: 1.1rem; margin-top: 1rem;">Let's discuss how I can help transform your brand messaging</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <a href="tel:+1234567890">+1 (234) 567-890</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:hello@iqrarao.com">hello@iqrarao.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>123 Business Avenue<br>Suite 400<br>New York, NY 10001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Connect With Me</h4>
+                            <div class="social-links">
+                                <a href="https://linkedin.com/in/iqrarao" target="_blank" class="social-link" title="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://twitter.com/iqrarao" target="_blank" class="social-link" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://instagram.com/iqrarao" target="_blank" class="social-link" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://facebook.com/iqrarao" target="_blank" class="social-link" title="Facebook">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 2rem; font-size: 1.75rem;">Send a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
     <section class="faq-section" id="faq">
         <div class="container">
@@ -1225,6 +1861,17 @@
                 }
             });
         });
+
+        // Contact Form Handler
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically send the form data to a server
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+        }
     </script>
 </body>
 </html>
